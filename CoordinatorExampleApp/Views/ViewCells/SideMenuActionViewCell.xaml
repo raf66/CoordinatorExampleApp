@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+          x:Class="CoordinatorExampleApp.Views.ViewCells.SideMenuActionViewCell">
+
+
+    <Grid Padding="20,10,0,0" BackgroundColor="Transparent">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.Column="0" Source="{Binding Icon}">
+            <Image.Source>
+                
+            </Image.Source>
+        </Image>
+            
+        
+        <Label Grid.Column="1" 
+           Text="{Binding Title}" 
+           TextColor="{StaticResource sideMenuLinkColor}"
+           Margin="5,5,0,0"/>
+        
+    </Grid>
+        
+</ViewCell>
+

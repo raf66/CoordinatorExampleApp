@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="CoordinatorExampleApp.Views.BandPickerPage"
+             Title="Your Bands"
+             BackgroundColor="{StaticResource formBackgroundColor}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="outline_close_black" Command="{Binding CancelCommand}"/>    
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+
+        <StackLayout>
+
+            <ListView ItemsSource="{Binding Bands}" 
+                  ItemTapped="OnBandTapped"
+                  HasUnevenRows="true"
+                  SeparatorVisibility="None"       
+                  BackgroundColor="Transparent"
+         
+                  IsPullToRefreshEnabled="true"
+                  IsRefreshing="{Binding IsBusy}"
+                  RefreshCommand="{Binding RefreshCommand}">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            
+                            <StackLayout Padding="20,10,20,10" BackgroundColor="Transparent">
+
+                                <Frame HasShadow="false" OutlineColor="{StaticResource listOutlineColor}" BackgroundColor="White">
+                                    <StackLayout>
+                                        <Label Text="{Binding BandName}" 
+                                               HorizontalOptions="Center"/>    
+                                    </StackLayout>
+                                </Frame>
+                                
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+            </ListView>
+            
+        </StackLayout>
+
+        
+    </ContentPage.Content>
+</ContentPage>
