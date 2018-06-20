@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+         xmlns:views="clr-namespace:CoordinatorExampleApp.Views"                 
+         x:Class="CoordinatorExampleApp.Views.BootstrapPage"
+         Title="Loading...">
+    
+    <ContentPage.Content>
+
+        <StackLayout VerticalOptions="CenterAndExpand" 
+                     HorizontalOptions="CenterAndExpand">
+
+            <ActivityIndicator 
+                IsRunning="{Binding IsBusy}" 
+                IsVisible="true"/>
+            
+            <Label Text="Loading..." 
+                   XAlign="Center"/>
+            
+        </StackLayout>
+
+        
+    </ContentPage.Content>
+</views:BaseContentPage>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true"                            
+
+             xmlns:viewcells="clr-namespace:CoordinatorExampleApp.Views.ViewCells"
+             xmlns:templates="clr-namespace:CoordinatorExampleApp.Views.Templates"
+             
+             x:Class="CoordinatorExampleApp.Views.PostLoginSideMenuPage"
+             Title="Menu"
+             Icon="outline_menu_black"
+             BackgroundColor="{StaticResource sideMenuBackgroundColor}">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="sideMenuActionTemplate">
+                <viewcells:SideMenuActionViewCell SideMenuItem="{Binding .}" />
+            </DataTemplate>
+
+            <DataTemplate x:Key="sideMenuHeaderTemplate">
+                <viewcells:SideMenuHeaderViewCell SideMenuItem="{Binding .}" />
+            </DataTemplate>
+
+            <templates:SideMenuDataTemplateSelector x:Key="sideMenuDataTemplateSelector" 
+                SideMenuActionTemplate="{StaticResource sideMenuActionTemplate}" 
+                SideMenuHeaderTemplate="{StaticResource sideMenuHeaderTemplate}" />
+    
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    
+    <ContentPage.Content>
+        <StackLayout Margin="0,30,0,0">
+
+            <ListView ItemsSource="{Binding SideMenuItems}"
+                      BackgroundColor="{StaticResource sideMenuBackgroundColor}"
+                      SeparatorVisibility="None"
+                      ItemTemplate="{StaticResource sideMenuDataTemplateSelector}"
+                      CachingStrategy="RecycleElement"
+                      ItemTapped="OnItemTapped">                
+            </ListView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>

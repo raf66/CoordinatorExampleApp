@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:views="clr-namespace:CoordinatorExampleApp.Views"                 
+             x:Class="CoordinatorExampleApp.Views.LoginPage"
+             Title="Login"
+             BackgroundColor="{StaticResource formBackgroundColor}">
+    
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="Transparent">
+
+            <StackLayout Padding="20,10,20,10">
+
+                <Entry Placeholder="User name" 
+                       Text="{Binding UserName}"
+                       Style="{StaticResource entryStyle}" 
+                       Keyboard="Email" />
+
+                <Entry IsPassword="true" 
+                       Placeholder="Password"
+                       Text="{Binding Password}"
+                       Style="{StaticResource entryStyle}"/>
+
+                <ActivityIndicator 
+                       IsRunning="{Binding IsBusy}" 
+                       IsVisible="true"/>
+
+                <Button Text="Sign In" 
+                       Command="{Binding LoginCommand}"
+                       IsEnabled="{Binding IsLoginEnabled}"
+                        Style="{StaticResource primaryButtonStyle}"/>
+                                        
+            </StackLayout>                
+            
+        </ScrollView>
+    </ContentPage.Content>
+
+</views:BaseContentPage>
